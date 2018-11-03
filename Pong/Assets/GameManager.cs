@@ -8,14 +8,15 @@ public class GameManager : MonoBehaviour {
     public Paddle paddle;
 
     public static Vector2 bottomLeft;
-    public static Vector2 topRight; 
-
+    public static Vector2 topRight;
+    private Rect cameraRect;
 
 	// Use this for initialization
 	void Start () {
 
         bottomLeft = Camera.main.ScreenToWorldPoint(new Vector2(0, 0));
         topRight = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
+        
 
         Instantiate(ball);
 

@@ -15,13 +15,10 @@ public class Paddle : MonoBehaviour {
     string input;
     public bool isRight; 
 
-
-
 	void Start () {
 
         height = transform.localScale.y;
         speed = 5f; 
-
 	}
 
     public void Init(bool isRightPaddle)
@@ -36,6 +33,7 @@ public class Paddle : MonoBehaviour {
         {
             pos = new Vector2 (GameManager.topRight.x,0);
             pos -= Vector2.right * transform.localScale.x;
+            
 
             input = "PaddleRight"; 
         }
@@ -55,7 +53,7 @@ public class Paddle : MonoBehaviour {
     void Update () {
 
         float move = Input.GetAxis(input) * Time.deltaTime * speed;
-        transform.Translate(move * Vector2.up); 
+        
 
         if (transform.position.y < GameManager.bottomLeft.y + height / 2 && move < 0)
         {
@@ -65,6 +63,6 @@ public class Paddle : MonoBehaviour {
         {
             move = 0;
         }
-
+        transform.Translate(move * Vector2.up);
     }
 }
